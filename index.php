@@ -10,7 +10,7 @@ License: GPL2
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-//Example Use Case: excluding certain posts from certain categories
+//Use Case 1: Exclude Specific Categories from Homepage 
 /* remove this line to use Use case 1
     $q = array(
               'post_type'           => 'post',
@@ -23,11 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 */ // remove this line to use Example Use Case
 //cut code from here and replace below inside funtion ampforwp_return_loop_args() between line 29-33
 
-//Use Case 2: index for certain post type instead of "post" Eg : page
-
-// learn more to Modify args @ https://developer.wordpress.org/reference/classes/wp_query/
+//Use Case 2: Show posts from different Post types
 function ampforwp_return_loop_args(){
-  //remove code between these comments and replace with your code here
+    // learn more to Modify args @ https://developer.wordpress.org/reference/classes/wp_query/
+    //remove code between these comments and replace with your code here
   $q = array(
             'post_type'           => 'page',
             'orderby'             => 'date',
@@ -40,5 +39,3 @@ function ampforwp_custom_home_output(){
   add_filter('ampforwp_query_args', 'ampforwp_return_loop_args');
 }
 add_action('amp_init','ampforwp_custom_home_output');
-
-
